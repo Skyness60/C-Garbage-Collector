@@ -6,7 +6,7 @@
 /*   By: sperron <sperron@student>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:06:17 by sperron           #+#    #+#             */
-/*   Updated: 2024/10/27 22:56:48 by sperron          ###   ########.fr       */
+/*   Updated: 2024/10/27 23:05:21 by sperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_garbage_c
 	void	**ptr_arr;
 	size_t	capacite;
 	size_t	count;
+	bool	verbose;
 }	t_garb_c;
 
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);

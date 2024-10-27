@@ -6,7 +6,7 @@
 /*   By: sperron <sperron@student>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 17:27:51 by sperron           #+#    #+#             */
-/*   Updated: 2024/10/27 22:57:00 by sperron          ###   ########.fr       */
+/*   Updated: 2024/10/27 23:05:53 by sperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	add_ptr(t_garb_c *trash, void *ptr)
 		trash->ptr_arr = new_ptr;
 	}
 	trash->ptr_arr[trash->count++] = ptr;
+	if (trash->verbose == true)
+		printf("Pointer %p added to the garbage collector\n", ptr);
 }
 
 void	add_ptr_tab(t_garb_c *trash, void **ptr_arr, int arr_len, \
