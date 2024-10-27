@@ -11,12 +11,12 @@
 # ************************************************************************** #
 
 # Variables
-NAME = garbage_collector
+NAME = libgarbage_collector.a
 CC = cc -g3
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = src/gc_add.c src/gc_check.c src/gc_debug.c src/gc_free.c \
-      src/gc_init.c src/gc_remove.c src/gc_utils.c main.c
+      src/gc_init.c src/gc_remove.c src/gc_utils.c
 
 OBJECTS = $(SRC:.c=.o)
 
@@ -60,18 +60,18 @@ loading_animation:
 # Création de l'exécutable
 $(NAME): $(OBJ)
 	@$(MAKE) -s loading_animation
-	@echo "$(BLUE)🔗 Linking...$(NC)"
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)✅ $@ built!$(NC)"
+	@echo "$(BLUE)🔗 Creating static library...$(NC)"
+	@ar rcs $(NAME) $(OBJ)
+	@echo "$(GREEN)✅ $@ created!$(NC)"
 
-# Nettoyage des fichiers objets avec animation de poubelle
 clean:
 	@echo "$(YELLOW)🗑️ Cleaning up object files...$(NC)"
 	@$(MAKE) -s trash_animation
 	@rm -f $(OBJECTS)
 	@echo "$(YELLOW)🗑️ $(OBJECTS) deleted!$(NC)"
 
-# Animation de la poubelle
+
+
 # Animation de la poubelle
 trash_animation:
 	@echo "$(YELLOW)🗑️  Starting garbage collection...$(NC)"
@@ -89,7 +89,6 @@ trash_animation:
 	done; \
 	echo "\n$(GREEN)✅ Memory optimized!$(NC)"
 
-# Nettoyage complet
 fclean: clean
 	@echo "$(RED)🗑️ Removing executable...$(NC)"
 	@rm -rf $(NAME)
