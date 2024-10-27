@@ -25,3 +25,17 @@ Ce projet implémente un garbage collector (GC) en C. Ce garbage collector est c
   - `debug_gc` affiche l'état actuel du garbage collector, y compris la capacité et le nombre de pointeurs.
 
 Mention spécial [jlebard07](https://github.com/jlebard07)
+
+## Init Makefile for your project
+
+```M̀akefile
+LINKLIBS = -L./garbage_collector -lgarbage_collector
+```
+```M̀akefile
+$(NAME) : $(OBJ)
+	@make -C ./garbage_collector --no-print-directory
+ ```
+```M̀akefile
+fclean:	clean
+@make fclean -C ./garbage_collector --no-print-directory
+```
