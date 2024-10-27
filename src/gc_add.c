@@ -6,7 +6,7 @@
 /*   By: sperron <sperron@student>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 17:27:51 by sperron           #+#    #+#             */
-/*   Updated: 2024/10/26 18:22:02 by sperron          ###   ########.fr       */
+/*   Updated: 2024/10/27 22:57:00 by sperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	add_ptr(t_garb_c *trash, void *ptr)
 		new_ptr = ft_realloc((void *)trash->ptr_arr, \
 		trash->count * sizeof(void *), trash->capacite * sizeof(void *));
 		if (!new_ptr)
-			exit(1);
+			return (gc_error(REALLOC_ERROR, trash));
 		trash->ptr_arr = new_ptr;
 	}
 	trash->ptr_arr[trash->count++] = ptr;

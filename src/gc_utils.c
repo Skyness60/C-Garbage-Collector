@@ -6,7 +6,7 @@
 /*   By: sperron <sperron@student>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 17:23:41 by sperron           #+#    #+#             */
-/*   Updated: 2024/10/26 18:12:08 by sperron          ###   ########.fr       */
+/*   Updated: 2024/10/27 22:57:34 by sperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 		return (free(ptr), NULL);
 	dest = malloc(new_size);
 	if (!dest)
-		exit(1);
+		return (free(ptr), NULL);
 	if (ptr)
 	{
 		if (old_size < new_size)
@@ -47,4 +47,13 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 		free(ptr);
 	}
 	return (dest);
+}
+
+void	gc_putstr(const char *str)
+{
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
 }

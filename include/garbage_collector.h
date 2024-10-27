@@ -6,7 +6,7 @@
 /*   By: sperron <sperron@student>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:06:17 by sperron           #+#    #+#             */
-/*   Updated: 2024/10/26 19:14:47 by sperron          ###   ########.fr       */
+/*   Updated: 2024/10/27 22:56:48 by sperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
+
+typedef enum e_error
+{
+	MALLOC_ERROR,
+	REALLOC_ERROR,
+}			t_error;
 
 typedef struct s_garbage_c
 {
@@ -32,4 +38,6 @@ void	init_garbage_collector(t_garb_c *trash);
 void	free_all(t_garb_c *trash);
 void	remove_ptr(t_garb_c *trash, void *ptr);
 bool	is_ptr_in_trash(t_garb_c *trash, void *ptr);
+void	gc_putstr(const char *str);
+void	gc_error(t_error error, t_garb_c *trash);
 #endif // !GARBAGE_COLLECTOR_H
