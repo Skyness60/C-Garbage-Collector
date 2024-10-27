@@ -6,7 +6,7 @@
 /*   By: sperron <sperron@student>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:06:17 by sperron           #+#    #+#             */
-/*   Updated: 2024/10/27 23:05:21 by sperron          ###   ########.fr       */
+/*   Updated: 2024/10/27 23:11:17 by sperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <unistd.h>
 
 typedef enum e_error
 {
